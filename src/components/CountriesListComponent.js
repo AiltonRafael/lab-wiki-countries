@@ -42,7 +42,6 @@ export default function CountriesListComponent(props) {
             > 
             {props.data.map((country) => {
                 return (
-                    <Link>
                         <Button
                         w='250px'
                         mt='1px'
@@ -58,7 +57,6 @@ export default function CountriesListComponent(props) {
                         > 
                         {country.name.common}
                         </Button>
-                    </Link>
                 )
             })}
             </Box>        
