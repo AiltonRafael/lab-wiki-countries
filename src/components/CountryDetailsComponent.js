@@ -1,9 +1,11 @@
-import React from 'react'
+import { Box } from '@chakra-ui/layout';
+import React from 'react';
+
 
 export default function CountryDetailsComponent() {
     return (
-        <div>
+        <Box>
             
-        </div>
+        </Box>
     )
 }

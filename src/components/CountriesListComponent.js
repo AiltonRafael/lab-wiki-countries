@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/button';
 import { Link } from 'react-router-dom'
 
@@ -42,10 +42,11 @@ export default function CountriesListComponent(props) {
             > 
             {props.data.map((country) => {
                 return (
-                        <Button
+                        <Text
+                        flexDir='center'
                         w='250px'
                         mt='1px'
-                        fontSize='12px'
+                        fontSize='20px'
                         key={country.name.common}
                         _hover={{
                             bg: '100',
@@ -56,7 +57,7 @@ export default function CountriesListComponent(props) {
                         onClick={() => handleSelectCountry(country.name.common)}
                         > 
                         {country.name.common}
-                        </Button>
+                        </Text>
                 )
             })}
             </Box>        

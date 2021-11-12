@@ -1,14 +1,18 @@
 import data from '../data/countries.json';
 import NavbarComponent from "./NavbarComponent";
 import CountriesListComponent from './CountriesListComponent';
+import CountryDetailsComponent from './CountryDetailsComponent';
+import {Routes, Route} from 'react-router-dom'
 
 function App() {
   return (
-    <div>
+    <>
       <NavbarComponent />
+       <Routes>
+          <Route path='/about' element={<CountryDetailsComponent />} />    
+      </Routes>
       <CountriesListComponent data={data}/>
-      
-    </div>
+    </>
   );
 }
 
