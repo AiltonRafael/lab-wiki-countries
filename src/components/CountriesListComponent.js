@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/button';
+import { Link } from 'react-router-dom'
 
 export default function CountriesListComponent(props) {
     const [isToggle, setIsToggle] = useState(false)
@@ -41,21 +42,23 @@ export default function CountriesListComponent(props) {
             > 
             {props.data.map((country) => {
                 return (
-                    <Button
-                    w='250px'
-                    mt='1px'
-                    fontSize='12px'
-                    key={country.name.common}
-                    _hover={{
-                        bg: '100',
-                        color: 'white',
-                        cursor: 'pointer',
-                        border: '1px',
-                    }}
-                    onClick={() => handleSelectCountry(country.name.common)}
-                    > 
-                    {country.name.common}
-                     </Button>
+                    <Link>
+                        <Button
+                        w='250px'
+                        mt='1px'
+                        fontSize='12px'
+                        key={country.name.common}
+                        _hover={{
+                            bg: '100',
+                            color: 'white',
+                            cursor: 'pointer',
+                            border: '1px',
+                        }}
+                        onClick={() => handleSelectCountry(country.name.common)}
+                        > 
+                        {country.name.common}
+                        </Button>
+                    </Link>
                 )
             })}
             </Box>        
