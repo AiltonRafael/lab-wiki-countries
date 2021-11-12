@@ -8,41 +8,57 @@ export default function CountriesListComponent(props) {
         setIsToggle(!isToggle)
     }
 
+    function handleSelectCountry(country){
+        console.log(country)
+    }
+
     return (
         <Box
         h='100%'
         w='30vh'
         >
             <Button
-            onMouseOver={handleClick}
+            onClick={handleClick}
+            _hover={{
+                bg: '100',
+                color: 'white',
+                cursor: 'pointer',
+                border: '1px'
+            }}
             > 
                 show/hide 
             </Button>
 
             <Box
             d={isToggle ? 'inline' : 'none'}
-            position='fixed'
+            flexWrap='wrap'
+            position='absolute'
+            h='100vh'
             top='140px'
             left='0px'
-            right='50%'
+            right='83%'
+            overflow='scroll'
             > 
             {props.data.map((country) => {
                 return (
                     <Button
-                    w='20%'
+                    w='250px'
                     mt='1px'
+                    fontSize='12px'
+                    key={country.name.common}
                     _hover={{
                         bg: '100',
                         color: 'white',
                         cursor: 'pointer',
-                        border: '1px'
+                        border: '1px',
                     }}
+                    onClick={() => handleSelectCountry(country.name.common)}
                     > 
                     {country.name.common}
                      </Button>
                 )
             })}
-            /</Box>        
+            </Box>        
         </Box>
     )
 }
