@@ -5,12 +5,14 @@ import { Link } from 'react-router-dom'
 
 export default function CountriesListComponent(props) {
     const [isToggle, setIsToggle] = useState(false)
+    const [currentCountry, setCurrentCountry] = useState('/')
+
     function handleClick(){
         setIsToggle(!isToggle)
     }
 
     function handleSelectCountry(country){
-        console.log(country)
+        setCurrentCountry(country)
     }
 
     return (
@@ -42,6 +44,7 @@ export default function CountriesListComponent(props) {
             > 
             {props.data.map((country) => {
                 return (
+                    <Link to={currentCountry}>
                         <Text
                         flexDir='center'
                         w='250px'
@@ -56,8 +59,9 @@ export default function CountriesListComponent(props) {
                         }}
                         onClick={() => handleSelectCountry(country.name.common)}
                         > 
-                        {country.name.common}
+                        {country.name.common} {country.flag}
                         </Text>
+                    </Link>
                 )
             })}
             </Box>        
