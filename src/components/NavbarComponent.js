@@ -12,6 +12,7 @@ export default function NavbarComponent() {
             <Text
             textAlign='center'
             color='white'
+            ml='10px'
             > 
                 WikiCountry 
             </Text>

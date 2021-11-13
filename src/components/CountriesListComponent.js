@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom'
 
 export default function CountriesListComponent(props) {
     const [isToggle, setIsToggle] = useState(false)
-    const [currentCountry, setCurrentCountry] = useState('/')
+    const [currentCountry, setCurrentCountry] = useState('/');
+    const [buttonState, setButtonState] = useState(true)
 
     function handleClick(){
         setIsToggle(!isToggle)
+        setButtonState(!buttonState)
     }
 
     function handleSelectCountry(country){
@@ -18,7 +20,7 @@ export default function CountriesListComponent(props) {
     return (
         <Box
         h='100%'
-        w='30vh'
+        w='100%'
         >
             <Button
             onClick={handleClick}
@@ -29,7 +31,7 @@ export default function CountriesListComponent(props) {
                 border: '1px'
             }}
             > 
-                show/hide 
+                {buttonState ? 'Click to Show' : 'Click to Hide'}
             </Button>
 
             <Box

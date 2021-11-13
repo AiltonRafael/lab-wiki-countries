@@ -11,7 +11,9 @@ function App() {
     <div>
       <NavbarComponent />
       <Grid templateColumns='1fr 4fr'>
-        <CountriesListComponent data={data} />
+        <CountriesListComponent 
+        data={data} 
+        />
         <Routes>
             <Route path='/:id' element={<CountryDetailsComponent />}/>
         </Routes>
