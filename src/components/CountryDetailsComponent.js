@@ -9,12 +9,15 @@ import {
 } from '@chakra-ui/table';
 import React from 'react';
 import { useParams } from 'react-router';
-import data from '../data/countries.json'
+import data from '../data/countries.json';
+import { Link } from 'react-router-dom'
+
 let foundInfoCountry = []
 
 export default function CountryDetailsComponent() {
     const params = useParams()
-    const foundCity = data.find((currentData) => currentData.name.common === params.id)
+    const foundCity = data.find((currentData) => currentData.cca3 === params.id)
+    console.log(foundCity.cca3)
     
     return (
         <Box>
@@ -27,7 +30,11 @@ export default function CountryDetailsComponent() {
                 <Tbody>
                     <Tr>
                         <Td> <strong> Capital </strong>  </Td>
-                        <Td> {foundCity.capital} </Td>
+                        <Td> 
+                            {foundCity.capital.map((element) => {
+                                return <div> {element} </div>
+                            })} 
+                        </Td>
                     </Tr>
                     <Tr>
                         <Td> <strong> Area </strong> </Td>
@@ -36,7 +43,22 @@ export default function CountryDetailsComponent() {
                     <Tr>
                         <Td> <strong> Border </strong> </Td>
                         <Td>
-                          {foundCity.borders.map((currentBorder, index) => <div key={index}> {currentBorder} </div>)}
+                          {foundCity.borders.map((currentBorder, index) => {
+                              return (
+                                  <Link to={data.find((element) => {
+                                      return element.cca3 === currentBorder
+                                  })}>
+                                      <div> {currentBorder} </div>
+                                        {/* <div key={index}> 
+                                                {data.find((country) => {
+                                                    return country.cca3 === currentBorder
+                                                })}
+                                        </div> */}
+                                    </Link>
+                                    )
+                                }
+                              )
+                          }
                         </Td>
                     </Tr>
                     <Tr>
